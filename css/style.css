@@ -7,7 +7,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 * {
 	margin: 0;
 	padding: 0;
-	position: relative;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -51,8 +50,12 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .three-of-five { width: 57%; }
 .four-of-five { width: 77%; }
 
-@media screen and (max-width: 650px) {
-	.grid {
+@media screen and (max-width: 800px) {
+	.container {
+        max-width: 700px;
+    }
+    
+    .grid {
 		margin-left: 0;
 		max-width: none;
 	}
@@ -101,7 +104,7 @@ hr {
 	margin-top: -1px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
 	html {
 		font-size: 100%;
 	}
@@ -111,7 +114,7 @@ hr {
 	MAIN
 \*-----------------------------------*/
 
-html { font: 125%/1.5 Helvetica Neue, Helvetica, Arial, sans-serif; }
+html { font: 100%/1.5 Helvetica Neue, Helvetica, Arial, sans-serif; }
 
 .clearfix { clear: both;}
 
@@ -125,7 +128,7 @@ ul a { <!-- create large tap points -->
     display: block; 
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
 	html { font-size: 100%; }
 }
 
@@ -138,7 +141,23 @@ header {
 }
 
 .site-name {
-    
+    position: inherit;
+}
+
+.site-name a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .site-name {
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        left:1.5rem;
+        background: #fff;
+        top:0;
+        z-index: 9999;
+    }
 }
 
 /*-----------------------------------*\
@@ -168,7 +187,7 @@ nav ul li { display: inline-block;}
 }
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
 	
     nav.navArea {
         z-index: 1;
@@ -178,9 +197,12 @@ nav ul li { display: inline-block;}
         display: block;
         cursor: pointer;
         position: fixed;
+        top:0;
         right:1.5rem;
         background: #fff;
         padding-left: 20px;
+        z-index: 9998;
+        width: 90%;
     }
     .navBar {
         display: none;
@@ -209,7 +231,7 @@ nav ul li { display: inline-block;}
 	CONTENT
 \*-----------------------------------*/
 
-main, aside {
+main{
     margin-top: 40px;
 }
 
@@ -217,15 +239,40 @@ main, aside {
 	SIDEBAR
 \*-----------------------------------*/
 
+aside {
+    margin-top: 40px;
+}
+
 aside.sidebar {
     display: inline-block;
 }
 
 .widget {
     border: 1px solid #69b2e0;
+    margin-top: 10px;
 }
 
-@media screen and (max-width: 650px) {
+.widget:first-of-type {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 800px) {
+    aside.sidebar {
+        width: 100%;
+    }
+    .widget {
+        display: inline-block;
+        width: 32%;
+        vertical-align: top;
+        margin-top: 0;
+        margin-left: 1%;
+    }
+    .widget:first-of-type {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
     aside.sidebar {
         display: none;
     }
@@ -235,7 +282,11 @@ aside.sidebar {
 	FOOTER
 \*-----------------------------------*/
 
-footer {}
+
+
+footer a {
+    text-decoration: none;
+}
 
 footer ul li { display: inline-block;}
 
@@ -247,8 +298,11 @@ footer ul li { display: inline-block;}
     text-align: right;
 }
 
-@media screen and (max-width: 650px) {
-	.rightFooter {
-        text-align: left;
+@media screen and (max-width: 800px) {
+    .rightFooter, .leftFooter {
+        display: inline-block;
+        *display: inline;
+        width: 47%;
+        margin-left: 3%;
     }
 }
