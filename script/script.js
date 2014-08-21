@@ -1,12 +1,10 @@
 
-headerMargins();
-
-
 $(document).ready(function(){
     $(".burgerMenu").click(function(e){
         $(".navBar").toggle();
     });
     
+    headerMargins();   
 });
 
 
@@ -14,10 +12,14 @@ $(window).resize(function(){
     offset = 0;
     headerMargins();
     
+    // restore the nav bar if toggled on/off and window is resized
+    if(window.innerWidth > 800) {
+        $(".navBar").removeAttr("style");
+    } 
+    
 });
 
-// Burger menu right margin
-// get the offset of the 'main' element and apply to the burger menu
+// set the header margins for the site name and the nav dynamically
 function headerMargins(){
     offset = $("main").offset();
     
@@ -26,4 +28,7 @@ function headerMargins(){
     
     var siteNameElm = $(".site-name");
     siteNameElm.css("left", offset.left);
+    
+    var dropDownNav = $(".navBar");
+    dropDownNav.css("right", offset.left);
 }

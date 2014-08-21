@@ -215,7 +215,7 @@ nav ul li { display: inline-block;}
         right: 1.5rem;
     }
     .navBar li {
-        width: 100%;
+        
     }
     nav ul li {
         display: block;
@@ -303,6 +303,19 @@ footer ul li { display: inline-block;}
         display: inline-block;
         *display: inline;
         width: 47%;
-        margin-left: 3%;
+    }
+    .rightFooter {
+        margin-left: 6%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .rightFooter, .leftFooter {
+		width: auto;
+		margin-left: 0;
+		display: block;
+    }
+    .rightFooter {
+        text-align: left;
     }
 }
